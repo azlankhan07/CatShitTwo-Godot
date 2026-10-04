@@ -1,0 +1,20 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://scripts/game_audio.gd" id="1_script"]
+[ext_resource type="AudioStream" path="res://assets/Audio/Light_Gun_Shot.mp3" id="2_light"]
+[ext_resource type="AudioStream" path="res://assets/Audio/Heavy_Gun_Shot.mp3" id="3_heavy"]
+[ext_resource type="AudioStream" path="res://assets/Audio/ak47_4_bullets_shot.mp3" id="4_burst"]
+[ext_resource type="AudioStream" path="res://assets/Audio/Bullet_Impact.mp3" id="5_impact"]
+[ext_resource type="AudioStream" path="res://assets/Audio/Jump.mp3" id="6_landing"]
+[ext_resource type="AudioStream" path="res://assets/Audio/Box_Falling.mp3" id="7_crate"]
+[ext_resource type="AudioStream" path="res://assets/Audio/Bg_Music.mp3" id="8_music"]
+
+[node name="GameAudio" type="Node2D"]
+script = ExtResource("1_script")
+light_shot = ExtResource("2_light")
+heavy_shot = ExtResource("3_heavy")
+ak47_burst = ExtResource("4_burst")
+bullet_impact = ExtResource("5_impact")
+landing = ExtResource("6_landing")
+crate_landing = ExtResource("7_crate")
+background_music = ExtResource("8_music")

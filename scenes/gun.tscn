@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://dfcccgctyvlhf"]
+
+[ext_resource type="Script" uid="uid://clo43fandahaw" path="res://scripts/gun.gd" id="1_og67c"]
+[ext_resource type="Texture2D" uid="uid://dlfv5trd0troy" path="res://assets/muzzle_flash.png" id="2_gp1hk"]
+[ext_resource type="PackedScene" uid="uid://dff2h02lxvfk5" path="res://scenes/bullet.tscn" id="2_qd4js"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qd4js"]
+atlas = ExtResource("2_gp1hk")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6b133"]
+atlas = ExtResource("2_gp1hk")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_haq8l"]
+atlas = ExtResource("2_gp1hk")
+region = Rect2(1024, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmp1f"]
+atlas = ExtResource("2_gp1hk")
+region = Rect2(0, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6oi81"]
+atlas = ExtResource("2_gp1hk")
+region = Rect2(512, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5lyo6"]
+atlas = ExtResource("2_gp1hk")
+region = Rect2(1024, 512, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s7wsd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qd4js")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6b133")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_haq8l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bmp1f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6oi81")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5lyo6")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 20.0
+}]
+
+[node name="Gun" type="Node2D" unique_id=1829023482]
+script = ExtResource("1_og67c")
+bullet_scene = ExtResource("2_qd4js")
+damage_percent = 6.4
+
+[node name="Muzzle" type="Marker2D" parent="." unique_id=1133775280]
+position = Vector2(201, -20)
+
+[node name="MuzzleFlash" type="AnimatedSprite2D" parent="Muzzle" unique_id=1969846507]
+scale = Vector2(0.12, 0.12)
+sprite_frames = SubResource("SpriteFrames_s7wsd")
+frame = 2
+offset = Vector2(253.54, -48.095)

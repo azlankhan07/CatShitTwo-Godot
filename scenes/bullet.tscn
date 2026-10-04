@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://dff2h02lxvfk5"]
+
+[ext_resource type="Texture2D" uid="uid://ddqplldwd6vk6" path="res://assets/bullet.png" id="1_mkf8s"]
+[ext_resource type="Script" uid="uid://oqf7006oyral" path="res://scripts/bullet.gd" id="1_y25gk"]
+[ext_resource type="PackedScene" uid="uid://2aq33wr5lkmb" path="res://scenes/impact.tscn" id="3_l5glv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y25gk"]
+atlas = ExtResource("1_mkf8s")
+region = Rect2(0, 0, 443, 443)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5glv"]
+atlas = ExtResource("1_mkf8s")
+region = Rect2(443, 0, 443, 443)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eoqba"]
+atlas = ExtResource("1_mkf8s")
+region = Rect2(886, 0, 443, 443)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qncy5"]
+atlas = ExtResource("1_mkf8s")
+region = Rect2(1329, 0, 443, 443)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tamys"]
+atlas = ExtResource("1_mkf8s")
+region = Rect2(0, 443, 443, 443)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26lx3"]
+atlas = ExtResource("1_mkf8s")
+region = Rect2(443, 443, 443, 443)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1cfmv"]
+atlas = ExtResource("1_mkf8s")
+region = Rect2(886, 443, 443, 443)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k76ql"]
+atlas = ExtResource("1_mkf8s")
+region = Rect2(1329, 443, 443, 443)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_26lx3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y25gk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5glv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eoqba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qncy5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tamys")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_26lx3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1cfmv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k76ql")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 20.0
+}]
+
+[node name="Bullet" type="Node2D" unique_id=1792790598]
+z_index = 6
+script = ExtResource("1_y25gk")
+impact_scene = ExtResource("3_l5glv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=670768001]
+scale = Vector2(0.07, 0.07)
+sprite_frames = SubResource("SpriteFrames_26lx3")
+frame_progress = 0.23038924

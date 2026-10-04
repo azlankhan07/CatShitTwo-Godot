@@ -1,0 +1,272 @@
+[gd_scene load_steps=13 format=3]
+
+[ext_resource type="Script" path="res://scripts/level_ui.gd" id="1_flow"]
+[ext_resource type="Script" path="res://scripts/world_message.gd" id="2_message"]
+[ext_resource type="Script" path="res://scripts/health_bar.gd" id="3_health"]
+[ext_resource type="FontFile" path="res://assets/fonts/PressStart2P-Regular.ttf" id="4_font"]
+
+[ext_resource type="Script" path="res://scripts/wide_camera_angle.gd" id="5_camera_zone"]
+
+[sub_resource type="Theme" id="Theme_pixel"]
+default_font = ExtResource("4_font")
+default_font_size = 16
+Label/colors/font_color = Color(1, 0.917647, 0.745098, 1)
+Label/colors/font_outline_color = Color(0.105882, 0.05098, 0.054902, 1)
+Label/constants/outline_size = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_world"]
+font = ExtResource("4_font")
+font_size = 24
+font_color = Color(1, 0.909804, 0.666667, 1)
+outline_size = 6
+outline_color = Color(0.101961, 0.039216, 0.047059, 1)
+shadow_color = Color(0, 0, 0, 0.5)
+shadow_offset = Vector2(3, 4)
+
+[sub_resource type="RectangleShape2D" id="Rectangle_acid"]
+size = Vector2(1500, 750)
+
+[sub_resource type="StyleBoxFlat" id="Style_popup"]
+bg_color = Color(0.12, 0.065, 0.07, 0.96)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.69, 0.4, 0.16, 1)
+content_margin_left = 20.0
+content_margin_top = 14.0
+content_margin_right = 20.0
+content_margin_bottom = 14.0
+
+[sub_resource type="StyleBoxFlat" id="Style_button"]
+bg_color = Color(0.34, 0.16, 0.085, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.78, 0.49, 0.22, 1)
+
+[sub_resource type="StyleBoxFlat" id="Style_hover"]
+bg_color = Color(0.49, 0.25, 0.12, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 0.8, 0.43, 1)
+
+[sub_resource type="RectangleShape2D" id="Rectangle_acid_camera"]
+size = Vector2(2000, 1050)
+
+[node name="LevelUI" type="Node2D"]
+script = ExtResource("1_flow")
+
+[node name="WorldMessages" type="Node2D" parent="."]
+z_index = 20
+texture_filter = 1
+
+[node name="Spawn" type="Label" parent="WorldMessages"]
+visible = false
+offset_left = -268.0
+offset_top = -810.0
+offset_right = 532.0
+offset_bottom = -730.0
+mouse_filter = 2
+text = "Its Revenge Time, Let's Go!"
+label_settings = SubResource("LabelSettings_world")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+script = ExtResource("2_message")
+
+[node name="Acid" type="Label" parent="WorldMessages"]
+visible = false
+offset_left = 5910.0
+offset_top = -290.0
+offset_right = 6550.0
+offset_bottom = -170.0
+mouse_filter = 2
+text = "This is trap set by
+the Cunning Rabbits!"
+label_settings = SubResource("LabelSettings_world")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+script = ExtResource("2_message")
+
+[node name="Exit" type="Label" parent="WorldMessages"]
+visible = false
+offset_left = 4747.0
+offset_top = -1330.0
+offset_right = 5747.0
+offset_bottom = -1230.0
+mouse_filter = 2
+text = "Indeed you are a Freedom Fighter!"
+label_settings = SubResource("LabelSettings_world")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+script = ExtResource("2_message")
+
+[node name="AcidApproach" type="Area2D" parent="."]
+position = Vector2(6230, 100)
+collision_layer = 0
+collision_mask = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AcidApproach"]
+shape = SubResource("Rectangle_acid")
+
+[node name="AcidCameraZone" type="Area2D" parent="."]
+position = Vector2(6230, 50)
+collision_layer = 0
+collision_mask = 1
+script = ExtResource("5_camera_zone")
+camera_position = Vector2(350, -150)
+zoom_amount = 0.6
+transition_duration = 0.5
+view_priority = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AcidCameraZone"]
+shape = SubResource("Rectangle_acid_camera")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+process_mode = 3
+layer = 10
+
+[node name="Screen" type="Control" parent="HUD"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = SubResource("Theme_pixel")
+
+[node name="HealthTitle" type="Label" parent="HUD/Screen"]
+offset_left = 38.0
+offset_top = 22.0
+offset_right = 190.0
+offset_bottom = 44.0
+mouse_filter = 2
+text = "HEALTH"
+
+[node name="HealthValue" type="Label" parent="HUD/Screen"]
+offset_left = 220.0
+offset_top = 22.0
+offset_right = 387.0
+offset_bottom = 44.0
+mouse_filter = 2
+text = "100 / 100"
+horizontal_alignment = 2
+
+[node name="HealthBar" type="Control" parent="HUD/Screen"]
+texture_filter = 1
+offset_left = 32.0
+offset_top = 48.0
+offset_right = 392.0
+offset_bottom = 109.0
+mouse_filter = 2
+script = ExtResource("3_health")
+
+[node name="Keys" type="Label" parent="HUD/Screen"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -230.0
+offset_top = 28.0
+offset_right = -32.0
+offset_bottom = 54.0
+grow_horizontal = 0
+mouse_filter = 2
+text = "KEYS 0 / 2"
+horizontal_alignment = 2
+
+[node name="Popup" type="PanelContainer" parent="HUD/Screen"]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -220.0
+offset_top = -118.0
+offset_right = 220.0
+offset_bottom = -54.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("Style_popup")
+
+[node name="Message" type="Label" parent="HUD/Screen/Popup"]
+layout_mode = 2
+mouse_filter = 2
+text = "You need 2 keys!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Victory" type="Control" parent="HUD/Screen"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Shade" type="ColorRect" parent="HUD/Screen/Victory"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.035, 0.02, 0.035, 0.78)
+
+[node name="Card" type="Panel" parent="HUD/Screen/Victory"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -150.0
+offset_right = 320.0
+offset_bottom = 150.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("Style_popup")
+
+[node name="Title" type="Label" parent="HUD/Screen/Victory/Card"]
+offset_left = 32.0
+offset_top = 38.0
+offset_right = 608.0
+offset_bottom = 92.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 0.81, 0.39, 1)
+theme_override_font_sizes/font_size = 32
+text = "YOU WON!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Subtitle" type="Label" parent="HUD/Screen/Victory/Card"]
+offset_left = 48.0
+offset_top = 113.0
+offset_right = 592.0
+offset_bottom = 175.0
+mouse_filter = 2
+text = "Both keys collected.\nThe way is open."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayAgain" type="Button" parent="HUD/Screen/Victory/Card"]
+offset_left = 180.0
+offset_top = 212.0
+offset_right = 460.0
+offset_bottom = 268.0
+theme_override_styles/normal = SubResource("Style_button")
+theme_override_styles/hover = SubResource("Style_hover")
+theme_override_styles/pressed = SubResource("Style_button")
+theme_override_styles/focus = SubResource("Style_hover")
+text = "PLAY AGAIN"
+
+[connection signal="pressed" from="HUD/Screen/Victory/Card/PlayAgain" to="." method="_on_play_again_pressed"]

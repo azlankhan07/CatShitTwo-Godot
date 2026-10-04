@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://dywc8ihysuvl3"]
+
+[ext_resource type="Texture2D" uid="uid://cmo05n1cdriya" path="res://assets/door.png" id="1_hpvv5"]
+
+[ext_resource type="Script" path="res://scripts/exit_door.gd" id="90_door"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvdjg"]
+atlas = ExtResource("1_hpvv5")
+region = Rect2(0, 0, 443, 443)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_83dcw"]
+atlas = ExtResource("1_hpvv5")
+region = Rect2(443, 0, 443, 443)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_la1wf"]
+atlas = ExtResource("1_hpvv5")
+region = Rect2(886, 0, 443, 443)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18pbm"]
+atlas = ExtResource("1_hpvv5")
+region = Rect2(1329, 0, 443, 443)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q5w8r"]
+atlas = ExtResource("1_hpvv5")
+region = Rect2(0, 443, 443, 443)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t58dd"]
+atlas = ExtResource("1_hpvv5")
+region = Rect2(443, 443, 443, 443)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ju5n0"]
+atlas = ExtResource("1_hpvv5")
+region = Rect2(886, 443, 443, 443)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kgbum"]
+atlas = ExtResource("1_hpvv5")
+region = Rect2(1329, 443, 443, 443)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s7wsd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvdjg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83dcw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_la1wf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18pbm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q5w8r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t58dd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ju5n0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kgbum")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s7wsd"]
+radius = 102.27185
+height = 324.68015
+
+[node name="Door" type="Area2D" unique_id=1020404583]
+collision_layer = 0
+script = ExtResource("90_door")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2108453104]
+sprite_frames = SubResource("SpriteFrames_s7wsd")
+frame_progress = 0.00072577264
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1433180242]
+position = Vector2(1.3333435, -1.5258789e-05)
+shape = SubResource("CapsuleShape2D_s7wsd")

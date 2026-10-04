@@ -1,0 +1,25 @@
+# Godot 4 generated files
+.godot/
+
+# Godot 3 generated files
+.import/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# IDE/editor files
+.vscode/
+.idea/
+
+# Build/export files
+*.exe
+*.apk
+*.aab
+*.zip
+*.rar
+
+# Local repair and backup files
+.atlas-repair/
+.movement-repair/
+.ui-backups/

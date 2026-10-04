@@ -1,0 +1,138 @@
+[gd_scene format=3 uid="uid://b4cr7cub7e4uk"]
+
+[ext_resource type="Script" uid="uid://c6no64tsepbe1" path="res://scripts/key.gd" id="1_fttkb"]
+[ext_resource type="Texture2D" uid="uid://s3w66qn8cn81" path="res://assets/key.png" id="1_yk2u2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fttkb"]
+atlas = ExtResource("1_yk2u2")
+region = Rect2(0, 0, 313, 313)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wy8tx"]
+atlas = ExtResource("1_yk2u2")
+region = Rect2(313, 0, 313, 313)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_brs3p"]
+atlas = ExtResource("1_yk2u2")
+region = Rect2(626, 0, 313, 313)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcln5"]
+atlas = ExtResource("1_yk2u2")
+region = Rect2(939, 0, 313, 313)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4qnb"]
+atlas = ExtResource("1_yk2u2")
+region = Rect2(0, 313, 313, 313)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6t41w"]
+atlas = ExtResource("1_yk2u2")
+region = Rect2(313, 313, 313, 313)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ljj5h"]
+atlas = ExtResource("1_yk2u2")
+region = Rect2(626, 313, 313, 313)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_upbuq"]
+atlas = ExtResource("1_yk2u2")
+region = Rect2(939, 313, 313, 313)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8cac7"]
+atlas = ExtResource("1_yk2u2")
+region = Rect2(0, 626, 313, 313)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gq3hl"]
+atlas = ExtResource("1_yk2u2")
+region = Rect2(313, 626, 313, 313)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ku6d0"]
+atlas = ExtResource("1_yk2u2")
+region = Rect2(626, 626, 313, 313)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1w6cg"]
+atlas = ExtResource("1_yk2u2")
+region = Rect2(939, 626, 313, 313)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fcqyd"]
+atlas = ExtResource("1_yk2u2")
+region = Rect2(0, 939, 313, 313)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_midqh"]
+atlas = ExtResource("1_yk2u2")
+region = Rect2(313, 939, 313, 313)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bu8ts"]
+atlas = ExtResource("1_yk2u2")
+region = Rect2(626, 939, 313, 313)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4oglw"]
+atlas = ExtResource("1_yk2u2")
+region = Rect2(939, 939, 313, 313)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s7wsd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fttkb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wy8tx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_brs3p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcln5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4qnb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6t41w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ljj5h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_upbuq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8cac7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gq3hl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ku6d0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1w6cg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fcqyd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_midqh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bu8ts")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4oglw")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s7rlf"]
+radius = 26.37378
+height = 253.28491
+
+[node name="Key" type="Area2D" unique_id=2004230513]
+script = ExtResource("1_fttkb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=738596016]
+sprite_frames = SubResource("SpriteFrames_s7wsd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1740300509]
+position = Vector2(22.18332, -6.211334)
+shape = SubResource("CapsuleShape2D_s7rlf")

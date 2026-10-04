@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://ldad6m44yt37"]
+
+[ext_resource type="Texture2D" uid="uid://scon8rvfjsou" path="res://assets/dessert 4.png" id="1_b66cd"]
+
+[ext_resource type="Script" path="res://scripts/crate_audio.gd" id="90_audio"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s7wsd"]
+size = Vector2(79.36843, 80.736855)
+
+[node name="Crate" type="RigidBody2D" unique_id=693254547]
+script = ExtResource("90_audio")
+collision_layer = 2
+collision_mask = 3
+lock_rotation = true
+linear_damp = 4.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1087934852]
+texture = ExtResource("1_b66cd")
+region_enabled = true
+region_rect = Rect2(728, 323, 83, 82)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1570973235]
+position = Vector2(-0.03936386, 0.32107162)
+shape = SubResource("RectangleShape2D_s7wsd")
